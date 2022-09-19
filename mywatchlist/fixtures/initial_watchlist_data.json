@@ -1,0 +1,112 @@
+[
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 1,
+    "fields": {
+      "watched": "No",
+      "title": "The Shawshank Redemption",
+      "rating": 4,
+      "release_date": "10-09-1994",
+      "review": "This movie is not your ordinary Hollywood flick. It has a great and deep message. This movie has a foundation and just kept on being built on from their and that foundation is hope."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 2,
+    "fields": {
+      "watched": "Yes",
+      "title": "Inception",
+      "rating": 5,
+      "release_date": "16-07-2010",
+      "review": "Inception is my number one favorite movie off my twelve years on earth! It's absolutely impossible to explain the incredible that Inception has."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 3,
+    "fields": {
+      "watched": "Yes",
+      "title": "Interstellar",
+      "rating": 4,
+      "release_date": "26-10-2014",
+      "review": "A lot has been said and written about Interstellar. You can obviously take apart any movie that is out there. You'll either love this one or you won't."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 4,
+    "fields": {
+      "watched": "Yes",
+      "title": "Parasite",
+      "rating": 5,
+      "release_date": "30-05-2019",
+      "review": "This Movie will make you belly laugh, it will chill you to the bone, and it will make you shed a tear. This movie will stay with you long after the credits are over"
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 5,
+    "fields": {
+      "watched": "Yes",
+      "title": "Forrest Gump",
+      "rating": 4,
+      "release_date": "06-07-1994",
+      "review": "Quite simply, the greatest film ever made. Humour, sadness, action, drama and a Vietnam film all rolled into one."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 6,
+    "fields": {
+      "watched": "No",
+      "title": "Fight Club",
+      "rating": 4,
+      "release_date": "15-10-1999",
+      "review": "Superb, and truly one of the greatest movies of all time."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 7,
+    "fields": {
+      "watched": "No",
+      "title": "Django Unchained",
+      "rating": 4,
+      "release_date": "25-12-2012",
+      "review": "Jango (D is silence) is just one of those movie you can watch every year and it never gets old."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 8,
+    "fields": {
+      "watched": "Yes",
+      "title": "Top Gun: Maverick",
+      "rating": 4,
+      "release_date": "27-05-2022",
+      "review": "If there's any movie that deserves to be seen in the theaters with big screens and booming speakers. It's :Top Gun Maverick."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 9,
+    "fields": {
+      "watched": "Yes",
+      "title": "Green Book",
+      "rating": 4,
+      "release_date": "16-11-2018",
+      "review": "This film proves why movies can be so powerful with a touching, poignant and some times funny story of opposites attract. Enjoyed every moment although it isn't always easy to watch."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 10,
+    "fields": {
+      "watched": "Yes",
+      "title": "Good Will Hunting",
+      "rating": 4,
+      "release_date": "09-01-1998",
+      "review": "Good Will Hunting is a beautifully filmed movie with striking scenery, and it is directed wonderfully by Van Sant. The music is never obtrusive but never too low-key either, while the story is interesting and compelling and the script intelligently written."
+    }
+  }
+]
