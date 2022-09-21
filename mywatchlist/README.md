@@ -2,7 +2,7 @@
 Deployment link : [link](https://tugas2-pbp-fajar.herokuapp.com/mywatchlist/)
 
 # Perbedaan HTML, XML, dan JSON
-*HTML: HTML (_Hyper Text Markup Language_) digunakan untuk membuat halaman web dan aplikasi web. _HTML_ adalah suatu bahasa markup. Dengan _HTML_ kita dapat membuat halaman statis kita sendiri. _HTML_ digunakan untuk menampilkan data bukan untuk mengangkut data. _HTML_ adalah kombinasi dari _Hypertext_ dan bahasa _Markup_. _Hypertext_ mendefinisikan link antara halaman web. Bahasa markup digunakan untuk mendefinisikan dokumen teks dalam tag yang mendefinisikan struktur halaman web. Bahasa ini digunakan untuk membubuhi keterangan (membuat catatan untuk komputer) teks sehingga mesin dapat memahaminya dan memanipulasi teks yang sesuai.
+* HTML: HTML (_Hyper Text Markup Language_) digunakan untuk membuat halaman web dan aplikasi web. _HTML_ adalah suatu bahasa markup. Dengan _HTML_ kita dapat membuat halaman statis kita sendiri. _HTML_ digunakan untuk menampilkan data bukan untuk mengangkut data. _HTML_ adalah kombinasi dari _Hypertext_ dan bahasa _Markup_. _Hypertext_ mendefinisikan link antara halaman web. Bahasa markup digunakan untuk mendefinisikan dokumen teks dalam tag yang mendefinisikan struktur halaman web. Bahasa ini digunakan untuk membubuhi keterangan (membuat catatan untuk komputer) teks sehingga mesin dapat memahaminya dan memanipulasi teks yang sesuai.
 * XML: XML (_eXtensible Markup Language_)  markup language yang digunakan untuk menyederhanakan proses penyimpanan dan pengiriman data antarserver. XML cenderung menyimpan data dalam format teks sederhana seperti tree yang mirip dengan HTML. Format ini cenderung mudah dibaca oleh manusia dibandingkan format JSON, tetapi pertukaran data akan berlangsung lebih lama. XML cukup dinamis karena digunakan untuk mengangkut data bukan untuk menampilkan data. Tujuan desain XML fokus pada kesederhanaan, umum, dan kegunaan di Internet. Meskipun desain XML berfokus pada dokumen, bahasa XML banyak digunakan untuk representasi struktur data arbitrer seperti yang digunakan dalam layanan web.
 * JSON atau JavaScript Object Notation merupakan suatu format yang dibuat di atas JavaScript untuk merepresentasikan data dalam bentuk key dan value. JSON dapat digunakan untuk melakukan penyimpanan dan pertukaran data dengan cepat dikarenakan strukturnya yang dapat menyimpan data dalam bentuk array, tetapi lebih sulit untuk dibaca oleh manusia daripada XML. 
 
@@ -12,32 +12,32 @@ Pada suatu platform seringkali terdapat pertukaran data antara user atau clients
 # Langkah-langkah implementasi
 1. Membuat Apps baru bernama mywatchlist lalu menambahkan path mywatchlist di direktori project_django pada file settings.py dan pada file urls.py
 
-```shell
-INSTALLED_APPS = [
-    ...
-    'mywatchlist',
-]
-```
+    ```shell
+    INSTALLED_APPS = [
+        ...
+        'mywatchlist',
+    ]
+    ```
 
-```shell
-urlpatterns = [
-    ...
-    path('katalog/', include('katalog.urls')),
-    path('mywatchlist/', include('mywatchlist.urls')),
-]
+    ```shell
+    urlpatterns = [
+        ...
+        path('katalog/', include('katalog.urls')),
+        path('mywatchlist/', include('mywatchlist.urls')),
+    ]
 
-```
+    ```
 
 2. Membuka file models.py yang ada pada direktori mywatchlist dan menambahkan sebuah class MyWatchList dengan parameter models.Model yaitu:
 
-```shell
-class MyWatchList(models.Model):
-    watched = models.CharField(max_length=3)
-    title = models.TextField()
-    rating = models.IntegerField()
-    release_date = models.TextField()
-    review = models.TextField()
-```
+    ```shell
+    class MyWatchList(models.Model):
+        watched = models.CharField(max_length=3)
+        title = models.TextField()
+        rating = models.IntegerField()
+        release_date = models.TextField()
+        review = models.TextField()
+    ```
 
 3. Membuat file bernama "initial_watchlist_data.json" lalu menambahkan data sebagai objek dari model MyWatchList
 
@@ -64,10 +64,10 @@ class MyWatchList(models.Model):
 9. Membuat routing dengan cara menambahkan urlpatterns pada file urls.py di folder mywathlist
 9. Menambahkan Class dan fungsi pada test.py yang berguna sebagai unit test
 10. Menambahkan isi Procfile agar pada saat aplikasi sudah terdeploy di heroku akan menampilkan initial data yang sudah disiapkan
-```shell
-release: sh -c 'python manage.py migrate && python manage.py loaddata initial_catalog_data.json && python manage.py loaddata initial_watchlist_data.json'
-web: gunicorn project_django.wsgi --log-file -
-```
+    ```shell
+    release: sh -c 'python manage.py migrate && python manage.py loaddata initial_catalog_data.json && python manage.py loaddata initial_watchlist_data.json'
+    web: gunicorn project_django.wsgi --log-file -
+    ```
 11. Langkah terakhir yang saya lakukan adalah melakuka push ke GitHub dengan menjalankan
     ```shell
     git add -A
