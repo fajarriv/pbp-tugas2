@@ -21,9 +21,22 @@ navbar {
     padding: 20px 0;
     display: block;
     width: 100%;
-    background-color: rgb(66, 124, 248);
+    background-color: rgb(151, 156, 168);
   }
 
 table, th, td {
   border: 1px solid black;
+}
+
+table {
+  width: 75%;
+}
+
+th, td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+body {
+  background-color: rgb(175, 175, 175);
 }
