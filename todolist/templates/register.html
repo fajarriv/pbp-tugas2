@@ -5,30 +5,85 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    .gradient-custom {
 
-<div class="login">
+        background: #6a11cb;
+        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgb(33, 111, 247))
+    }
 
-    <h1>Formulir Registrasi</h1>
+    .card {
+        border-radius: 1rem;
+    }
+</style>
 
-    <form method="POST">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td></td>
-                <td><input type="submit" name="submit" value="Daftar" /></td>
-            </tr>
-        </table>
-    </form>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
 
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white">
+                    <div class="card-body px-4 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-1">
 
-</div>
+                            <h2 class="fw-bold mb-3 text-uppercase">Registration Form</h2>
+                            <p class="text-white-50 mb-4">Please fill this form to create an Account!</p>
+
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                
+                                <div class="form-floating mb-4 text-light">
+                                    <input class="form-control bg-dark text-white" type="text" name="username" value=""
+                                        maxlength="150" autocapitalize="none" autocomplete="username" autofocus=""
+                                        required="" id="id_username" placeholder=" ">
+                                    <label class="form-label" for="id_username">Username</label>
+                                    {% if form.username.errors %}
+                                    <span class="text-danger">{{ form.username.errors }}</span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-floating mb-4 text-light">
+                                    <input class="form-control bg-dark text-white" type="password" name="password1"
+                                        autocomplete="new-password" required="" id="id_password1"
+                                        aria-autocomplete="list" placeholder=" ">
+                                    <label class="form-label" for="id_password1">Password</label>
+                                    {% if form.password1.errors %}
+                                    <span class="text-danger">{{ form.password1.errors }}</span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-floating mb-4 text-light">
+                                    <input class="form-control bg-dark text-white" type="password" name="password2"
+                                        autocomplete="new-password" required="" id="id_password2" placeholder=" ">
+                                    <label class="form-label" for="id_password2">Password Confirmation</label>
+                                    {% if form.password2.errors %}
+                                    <span class="text-danger">{{ form.password2.errors }}</span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <input class="btn btn-outline-light btn-lg px-5" type="submit" name="submit"
+                                        value="Daftar" />
+                                </div>
+                            </form>
+
+
+                            {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {% endblock content %}

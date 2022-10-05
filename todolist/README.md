@@ -1,4 +1,4 @@
-## TODOLIST
+## TODOLIST (TUGAS 4)
 Deployment link : [link](https://tugas2-pbp-fajar.herokuapp.com/todolist)
 Username Account : akunpengguna1,akunpengguna2
 Password  : 123pass123
@@ -67,4 +67,52 @@ Ya bisa. Hal pertama yang harus dilakukan adalah membuat form pada sebuah HTML (
     git add -A
     git commit -m "Your Commit"
     git push origin main
+    ```
+
+## TUGAS 5
+Deployment link : [link](https://tugas2-pbp-fajar.herokuapp.com/todolist)
+
+### Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+ Inline CSS dibuat di dalam sebuah elemen atau tag HTML dengan cara menambahkan atribut `style=""`. Scope dari Inline CSS hanya pada elemen yang digunakan atribut tersebut. Kelebihan dari menggunakan Inline CSS yaitu dapat menerapkan *style* hanya pada satu elemen saja. Sedangkan kekurangannya yaitu file HTML akan terlihat berantakan.
+
+ Internal CSS dibuat di dalam sebuah elemen `<style>` pada suatu file HTML, sehingga hanya berlaku pada file tersebut saja. Internal CSS relatif lebih baik dan rapih dibandingkan dengan inline CSS, namun apabila terdapat beberapa *style* yang berulang untuk page / file HTML lainnya maka akan menjadi tidak efisien
+
+ External CSS dibuat di sebuah file `.css` baru, lalu dimasukkan dengan menggunakan elemen atau tag `<link>` ke dalam suatu halaman / file HTML. Pada External CSS stylesheet berada pada file terpisah sehingga membuat file html lebih pendek dan mudah untuk dibaca. 
+
+### Jelaskan tag HTML5 yang kamu ketahui.
+Terdapat banyak sekali tag HTML5 yang tersedia. Berikut adalah beberapa elemen yang sering saya gunakan.
+- `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, tag untuk membuat teks judul / subjudul (*heading*).
+- `<p>`, tag untuk membentuk sebuah paragraph .
+- `<div>`, tag untuk mengemas beberapa elemen menjadi sebuah section atau *division*.
+- `<ul>` dan `<ol>`, tag untuk daftar tak terurut (unordered) dan daftar terurut (ordered). `<li>` digunakan untuk tiap butir pada daftar.
+- `<button>`, tag untuk membuat tombol yang dapat di*click*.
+- `<a>`, tag untuk mendifinisikan *hyperlink* yang digunakan untuk menghubungkan dari satu halaman ke halaman lain.
+- `<b>`, tag untuk menebalkan font (bold).
+- `<i>`, tag untuk memiringkan font (italic).
+- `<table>` (tabel keseluruhan), `<tr>` (baris/*row*), `<th>` (kepala/*head*), `<td>` (data), untuk membuat sebuah tabel.
+- `<style>`, tag untuk menambahkan CSS secara internal.
+
+### Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+- *Universal selector* merupakan selector yang akan memilih semua elemen.  
+  Contohnya adalah `*`,  yang akan memilih semua elemen.
+- *Type selector* merupakan selector yang akan memilih semua elemen dengan tipe/nama node yang sama.  
+  Contohnya adalah `input`, yang akan memilih semua elemen `<input>`.
+- *Class selector* merupakan selector berdasarkan class untuk mentargetkan beberapa section dengan class yang bersesuaian.  
+  Contohnya adalah `.card`, yang akan memilih semua elemen dengan kelas `card`.
+- *ID selector* merupakan selector berdasarkan id yang akan mentargetkan beberapa section dengan id yang bersesuaian.
+  Contohnya adalah `#header`, yang akan memilih semua elemen dengan ID `header`. Idealnya, satu ID hanya ada pada satu elemen.
+
+### Langkah-langkah implementasi
+- Instalasi Bootstrap melalui CDN yang ada di [dokumentasi Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/#cdn-links)
+- Menerapkan kustomisasi style pada tags-tags html pada django template dengan bantuan [template](https://mdbootstrap.com/docs/standard/extended/login/) yang ada di internet
+- Menerapkan Grid System dari Bootstrap agar website menjadi responsive
+- Menambahkan potongan kode CSS berikut agar terdapat efek ketika melakukan hover pada cards todolist
+  ```shell
+    .card:hover{
+    transform: scale(1.1);
+
+    }
+    .card{
+        transition: transform .5s;
+    }
     ```

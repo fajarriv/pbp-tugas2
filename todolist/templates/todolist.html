@@ -6,51 +6,86 @@
 {% endblock meta %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'styles/style.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'styles/style.css' %}"> -->
+<style>
+    .gradient-custom {
 
-<navbar>
-    <ul>
-        <li><a href="{% url 'todolist:show_todolist' %}">Home</a></li>
-        <li><a href="{% url 'todolist:create_task' %}">Create New Task</a></li>
-        <li><a href="{% url 'todolist:logout' %}">Logout</a></li>
-    </ul>
-</navbar>
+        background: #6a11cb;
+        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgb(33, 111, 247))
+    }
 
-<h2>Hello! {{request.user}}👋</h2>
+    .card {
+        border-radius: 1rem;
+    }
+    .card:hover{
+    transform: scale(1.1);
 
-{% if task_list %}
-<table>
-    <tr>
-        <th>Task Title</th>
-        <th>Description</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Delete Option</th>
-    </tr>
-    {% for task in task_list %}
-    <tr>
-        <td>{{ task.title }}</td>
-        <td>{{ task.description }}</td>
-        <td>{{ task.date }}</td>
-        <td>
-            {% if task.is_finished %}
-            Finished
-            {% else %}
-            Not Finished
-            {% endif %}
-            <br>
-            <button><a href="{% url 'todolist:update_task'  task.pk %}">Update</a></button>
+    }
 
-        </td>
-        <td><button><a href="{% url 'todolist:delete_task'  task.pk %}">delete</a></button></td>
-    </tr>
-    {% endfor %}
-</table>
-{% else %}
-<br>
-<h4>Your Task is Empty</h4>
-{% endif %}
+    .card{
+        transition: transform .5s;
+    }
+</style>
 
+<body class="gradient-custom">
+
+    <nav class="navbar navbar-expand-lg nav nav-pills nav-justified">
+        <div class="shadow flex-sm-fill text-sm-center card bg-dark bg-opacity-75 text-white mx-4 py-2">
+            <a class="nav-link text-white fw-bold" href="{% url 'todolist:show_todolist' %}">Home</a>
+        </div>
+        <div class="shadow flex-sm-fill text-sm-center card bg-dark bg-opacity-75 text-white mx-4 py-2">
+            <a class="text-sm-center nav-link text-white fw-bold" href="{% url 'todolist:create_task' %}">Create New
+                Task</a>
+        </div>
+        <div class="shadow flex-sm-fill text-sm-center card bg-dark bg-opacity-75 text-white mx-4 py-2">
+            <a class="text-sm-center nav-link text-danger fw-bold" href="{% url 'todolist:logout' %}">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class="my-3 mx-5 h-100">
+
+        <h2 class="fw-bold mb-3 text-uppercase">Hello! {{request.user}}👋</h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-4">
+            
+            {% if task_list %}
+            {% for task in task_list %}
+            <div class="col-sm">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ task.title }}</h5>
+                        <p class="card-text ">{{ task.description }}</p>
+                        <div class="row row-cols-2">
+                            {% if task.is_finished %}
+                            <p class="fw-bold text-success font-monospace ">Finished</p>
+                            {% else %}
+                            <p class="fw-bold text-warning font-monospace">Not Finished</p>
+                            {% endif %}
+                            <p class="card-text text-info font-monospace text-end">{{ task.date }}</p>
+                        </div>
+                        <div class="row g-2">
+                            <a class="btn btn-outline-light btn-lg px-5 btn-sm"
+                                href="{% url 'todolist:update_task'  task.pk %}">Update</a>
+                            <a class="btn btn-outline-danger btn-lg px-5 btn-sm"
+                                href="{% url 'todolist:delete_task'  task.pk %}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <br>
+        <h3 class="fw-bold font-monospace text-success">Your Task is Empty</h3>
+        {% endif %}
+
+        
+
+    </div>
+</body>
 
 
 {% endblock content %}
