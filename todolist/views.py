@@ -9,7 +9,8 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.http import HttpResponse,HttpRequest
+from django.core import serializers
 from todolist.forms import TaskForm
 
 
@@ -90,3 +91,23 @@ def delete_task(request,id):
     task = Task.objects.filter(pk=id)[0]
     task.delete()
     return redirect("todolist:show_todolist")
+
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    data_task = Task.objects.filter(user=request.user).all()
+    return HttpResponse(serializers.serialize("json", data_task), content_type="application/json")
+
+@login_required(login_url="/todolist/login")
+def add_task(request):
+    print(request.method)
+    if request.method == "POST":
+        task = Task(
+            user=request.user,
+            date=datetime.date.today(),
+            title=request.POST["title"],
+            description=request.POST["description"],
+        )
+        task.save()
+        return HttpResponse(serializers.serialize("json", task), content_type="application/json")
+
+    return HttpResponse("Invalid", status_code=405)
