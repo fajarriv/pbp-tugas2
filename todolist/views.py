@@ -108,6 +108,6 @@ def add_task(request):
             description=request.POST["description"],
         )
         task.save()
-        return HttpResponse(serializers.serialize("json", task), content_type="application/json")
+        return HttpResponse(serializers.serialize("json", [task]), content_type="application/json")
 
     return HttpResponse("Invalid", status_code=405)

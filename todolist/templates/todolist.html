@@ -222,13 +222,10 @@
             e.preventDefault()
             $.ajax({
                 type: 'POST',
-                url: '/todolist/add',
-                data: {
-                    data: $("#taskForm").serialize(),
-                    csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
+                url: '/todolist/add/',
+                data: $("#taskForm").serialize(),
+
                 success: () => {
-                    alert("Task successfully created!")
                     $("#clsbtn").click()
                     $("#modal").modal('hide')
                     getTask()
